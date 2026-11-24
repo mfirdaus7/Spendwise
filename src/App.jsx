@@ -17,6 +17,7 @@ import {
   ChevronDown,
   ChartNoAxesCombined,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import {
   Area,
   AreaChart,
@@ -185,7 +186,9 @@ export default function App() {
   }[active];
 
   return (
-    <div className="app-shell">
+    <>
+      <Analytics />
+      <div className="app-shell">
       <Sidebar
         active={active}
         onChange={setActive}
@@ -328,6 +331,7 @@ export default function App() {
         editing={editing}
       />
     </div>
+    </>
   );
 }
 
