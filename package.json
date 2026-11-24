@@ -13,6 +13,8 @@
     "lint:fix": "oxlint . --fix"
   },
   "dependencies": {
+    "@neon/config": "^1.14.6",
+    "@neon/env": "^2.1.9",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",

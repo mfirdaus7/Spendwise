@@ -6,6 +6,10 @@ import transactionRoutes from "./routes/transactions.js";
 import dashboardRoutes from "./routes/dashboard.js";
 import budgetRoutes from "./routes/budgets.js";
 
+// Load Neon environment variables first.
+dotenv.config({ path: ".env.local" });
+
+// Fallback to local backend environment variables.
 dotenv.config({ path: "backend/.env" });
 
 const app = express();
@@ -14,7 +18,9 @@ const port = process.env.PORT || 5000;
 app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
 app.use(express.json({ limit: "1mb" }));
 
-app.get("/api/health", (_req, res) => res.json({ status: "ok", service: "SpendWise API" }));
+app.get("/api/health", (_req, res) =>
+  res.json({ status: "ok", service: "SpendWise API" }),
+);
 app.use("/api/auth", authRoutes);
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/dashboard", dashboardRoutes);
