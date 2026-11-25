@@ -642,3 +642,264 @@ button {
     display: none;
   }
 }
+
+/* Dark Theme */
+.app-shell.dark-theme {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark-theme .main-area,
+.dark-theme .topbar,
+.dark-theme .page-content {
+  background: #0f172a;
+}
+
+.dark-theme .topbar {
+  border-color: #1e293b;
+}
+
+.dark-theme .content-card,
+.dark-theme .stat-card {
+  background: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme p {
+  color: inherit;
+}
+
+.dark-theme .text-slate-800,
+.dark-theme .text-slate-700 {
+  color: #e2e8f0;
+}
+
+.dark-theme .text-slate-600,
+.dark-theme .text-slate-500,
+.dark-theme .text-slate-400 {
+  color: #94a3b8;
+}
+
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+.dark-theme .sidebar {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-theme .nav-link {
+  color: #94a3b8;
+}
+
+.dark-theme .nav-link:hover,
+.dark-theme .nav-link.active {
+  background: #334155;
+  color: #ffffff;
+}
+
+.dark-theme .sidebar h1,
+.dark-theme .sidebar h2,
+.dark-theme .sidebar p {
+  color: #e2e8f0;
+}
+
+.dark-theme .upgrade-card {
+  background: #334155;
+  border-color: #475569;
+}
+
+.dark-theme table {
+  color: #e2e8f0;
+}
+
+.dark-theme th {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.dark-theme td {
+  border-color: #334155;
+}
+
+.dark-theme tr {
+  border-color: #334155;
+}
+
+.dark-theme .shadow-xl {
+  box-shadow: 0 10px 25px rgb(0 0 0 / 30%);
+}
+
+/* Dark Theme - Transaction Modal */
+.dark-theme .modal,
+.dark-theme .modal-content,
+.dark-theme .modal-card {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+.dark-theme .modal label {
+  color: #cbd5e1;
+}
+
+.dark-theme .modal input,
+.dark-theme .modal select,
+.dark-theme .modal textarea {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+.dark-theme .modal input::placeholder,
+.dark-theme .modal textarea::placeholder {
+  color: #64748b;
+}
+
+/* Dark Theme - Transaction Modal */
+.dark-theme .modal-panel {
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+}
+
+.dark-theme .modal-panel h2 {
+  color: #f1f5f9;
+}
+
+.dark-theme .modal-panel .border-slate-100 {
+  border-color: #334155;
+}
+
+.dark-theme .modal-panel .bg-slate-100 {
+  background: #334155;
+}
+
+.dark-theme .modal-panel .bg-white {
+  background: #475569;
+  color: #ffffff;
+}
+
+.dark-theme .modal-panel .field-label {
+  color: #cbd5e1;
+}
+
+.dark-theme .modal-panel .field-input {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+.dark-theme .modal-panel .field-input::placeholder {
+  color: #64748b;
+}
+
+/* Dark Theme - Month Selector */
+.dark-theme .month-select {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+.dark-theme .month-select input {
+  background: #1e293b;
+  color: #e2e8f0;
+  color-scheme: dark;
+  border-color: #334155;
+}
+
+/* Dark Theme - Current Spending */
+.dark-theme .bg-slate-50 {
+  background: #0f172a;
+}
+
+.dark-theme .text-slate-900 {
+  color: #f1f5f9;
+}
+
+/* Dark Theme - Hover States */
+.dark-theme button:hover,
+.dark-theme .icon-button:hover {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.dark-theme .nav-link:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.dark-theme .content-card button:hover,
+.dark-theme .modal-panel button:hover {
+  border-color: #475569;
+}
+
+/* Dark Theme - Chart */
+.dark-theme .recharts-wrapper {
+  background: transparent;
+}
+
+.dark-theme .recharts-cartesian-grid line {
+  stroke: #334155;
+}
+
+.dark-theme .recharts-text {
+  fill: #94a3b8;
+}
+
+.dark-theme .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #1e293b !important;
+  border: 1px solid #475569 !important;
+  border-radius: 10px;
+}
+
+.dark-theme .recharts-tooltip-label,
+.dark-theme .recharts-tooltip-item {
+  color: #e2e8f0 !important;
+}
+
+/* Dark Theme - Transaction Table */
+.dark-theme .data-table tbody tr:hover {
+  background-color: #334155 !important;
+}
+
+.dark-theme .data-table tbody tr:hover td {
+  background-color: transparent;
+}
+
+.dark-theme .data-table tbody tr:hover .text-slate-800 {
+  color: #f8fafc;
+}
+
+.dark-theme .data-table tbody tr:hover .text-slate-400 {
+  color: #cbd5e1;
+}
+
+.dark-theme .data-table tbody tr:hover .text-slate-500 {
+  color: #cbd5e1;
+}
+
+/* Dark Theme - Notification */
+.dark-theme .page-content .bg-violet-50 {
+  background: #312e45;
+  border-color: #4c4570;
+  color: #c4b5fd;
+}
+
+.dark-theme .page-content .bg-violet-50 button {
+  color: #c4b5fd;
+}
+
+.dark-theme .page-content .bg-violet-50 button:hover {
+  background: #4c4570;
+  color: #ffffff;
+}

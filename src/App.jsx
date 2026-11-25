@@ -18,6 +18,9 @@ import {
   PiggyBank,
   ChevronDown,
   ChartNoAxesCombined,
+  LogOut,
+  UserRound,
+  Settings,
 } from "lucide-react";
 import {
   Area,
@@ -55,6 +58,11 @@ export default function App() {
   const [active, setActive] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [month, setMonth] = useState(currentMonth);
+
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("spendwise_theme") || "light",
+  );
   const [dashboard, setDashboard] = useState({
     income: 0,
     expenses: 0,
@@ -184,10 +192,16 @@ export default function App() {
     transactions: "Transactions",
     budget: "Monthly budget",
     reports: "Reports",
+    profile: "My Profile",
+    settings: "User Settings",
   }[active];
 
+  useEffect(() => {
+    localStorage.setItem("spendwise_theme", theme);
+  }, [theme]);
+
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${theme === "dark" ? "dark-theme" : ""}`}>
       <Sidebar
         active={active}
         onChange={setActive}
@@ -226,8 +240,57 @@ export default function App() {
               />
             </label>
             <div className="hidden h-9 w-px bg-slate-100 sm:block" />
-            <div className="avatar avatar-small">
-              {user.name?.charAt(0)?.toUpperCase()}
+            <div className="relative">
+              <button
+                className="avatar avatar-small"
+                onClick={() => setProfileOpen(!profileOpen)}
+                aria-label="Open profile menu"
+              >
+                {user.name?.charAt(0)?.toUpperCase()}
+              </button>
+
+              {profileOpen && (
+                <div className="absolute right-0 top-12 z-50 w-52 rounded-xl border border-slate-100 bg-white p-2 shadow-xl">
+                  <div className="border-b border-slate-100 px-3 py-2">
+                    <p className="text-sm font-bold text-slate-800">
+                      {user.name}
+                    </p>
+                    <p className="truncate text-xs text-slate-400">
+                      {user.email}
+                    </p>
+                  </div>
+
+                  <button
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-600 hover:bg-slate-50"
+                    onClick={() => {
+                      setActive("profile");
+                      setProfileOpen(false);
+                    }}
+                  >
+                    <UserRound size={17} />
+                    User Profile
+                  </button>
+
+                  <button
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-600 hover:bg-slate-50"
+                    onClick={() => {
+                      setActive("settings");
+                      setProfileOpen(false);
+                    }}
+                  >
+                    <Settings size={17} />
+                    User Settings
+                  </button>
+
+                  <button
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-rose-600 hover:bg-rose-50"
+                    onClick={logout}
+                  >
+                    <LogOut size={17} />
+                    Sign Out
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </header>
@@ -310,6 +373,84 @@ export default function App() {
             />
           )}
           {active === "reports" && <Reports dashboard={dashboard} />}
+          {active === "profile" && (
+            <section className="content-card max-w-2xl p-6 sm:p-8">
+              <div className="flex items-center gap-4">
+                <div className="avatar h-16 w-16 text-2xl">
+                  {user.name?.charAt(0)?.toUpperCase()}
+                </div>
+                <div>
+                  <h2 className="font-display text-xl font-extrabold text-slate-900">
+                    {user.name}
+                  </h2>
+                  <p className="text-sm text-slate-500">{user.email}</p>
+                </div>
+              </div>
+
+              <div className="mt-8 border-t border-slate-100 pt-6">
+                <h3 className="section-title">Account information</h3>
+
+                <div className="mt-4 space-y-4">
+                  <div>
+                    <p className="text-xs text-slate-400">Full name</p>
+                    <p className="mt-1 text-sm font-semibold text-slate-800">
+                      {user.name}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-slate-400">Email address</p>
+                    <p className="mt-1 text-sm font-semibold text-slate-800">
+                      {user.email}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+          {active === "settings" && (
+            <section className="content-card max-w-2xl p-6 sm:p-8">
+              <div className="mb-6">
+                <h2 className="text-lg font-bold text-slate-800">Appearance</h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Customize how SpendWise looks on your device.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between gap-4 rounded-xl border border-slate-100 p-4">
+                <div>
+                  <p className="text-sm font-semibold text-slate-700">Theme</p>
+                  <p className="mt-1 text-xs text-slate-400">
+                    Choose your preferred appearance.
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setTheme("light")}
+                    className={`rounded-lg px-3 py-2 text-xs font-semibold ${
+                      theme === "light"
+                        ? "bg-blue-600 text-white"
+                        : "bg-slate-100 text-slate-600"
+                    }`}
+                  >
+                    Light
+                  </button>
+
+                  <button
+                    onClick={() => setTheme("dark")}
+                    className={`rounded-lg px-3 py-2 text-xs font-semibold ${
+                      theme === "dark"
+                        ? "bg-blue-600 text-white"
+                        : "bg-slate-100 text-slate-600"
+                    }`}
+                  >
+                    Dark
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
           {loading && (
             <p className="mt-4 text-center text-xs text-slate-400">
               Updating your figures...
