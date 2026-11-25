@@ -4,6 +4,7 @@ import pg from "pg";
 import fs from "node:fs";
 
 dotenv.config({ path: ".env.local" });
+dotenv.config({ path: "backend/.env" });
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,

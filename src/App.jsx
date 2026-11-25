@@ -38,6 +38,7 @@ import Sidebar from "./components/Sidebar.jsx";
 import StatCard from "./components/StatCard.jsx";
 import TransactionModal from "./components/TransactionModal.jsx";
 import AuthScreen from "./components/AuthScreen.jsx";
+import SavingsGoals from "./components/SavingsGoals.jsx";
 import { api, money, monthLabel } from "./lib/api.js";
 
 const COLORS = [
@@ -191,6 +192,7 @@ export default function App() {
     overview: "Overview",
     transactions: "Transactions",
     budget: "Monthly budget",
+    savings: "Savings Goals",
     reports: "Reports",
     profile: "My Profile",
     settings: "User Settings",
@@ -372,6 +374,7 @@ export default function App() {
               onSave={saveBudget}
             />
           )}
+          {active === "savings" && <SavingsGoals />}
           {active === "reports" && <Reports dashboard={dashboard} />}
           {active === "profile" && (
             <section className="content-card max-w-2xl p-6 sm:p-8">

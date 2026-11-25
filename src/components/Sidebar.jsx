@@ -6,12 +6,14 @@ import {
   Settings,
   X,
   UserRound,
+  PiggyBank,
 } from "lucide-react";
 
 const items = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
   { id: "transactions", label: "Transactions", icon: ArrowLeftRight },
   { id: "budget", label: "Monthly budget", icon: Wallet },
+  { id: "savings", label: "Savings Goals", icon: PiggyBank },
   { id: "reports", label: "Reports", icon: ChartNoAxesCombined },
   { id: "profile", label: "My Profile", icon: UserRound },
 ];

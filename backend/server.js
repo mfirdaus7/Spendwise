@@ -5,6 +5,7 @@ import authRoutes from "./routes/auth.js";
 import transactionRoutes from "./routes/transactions.js";
 import dashboardRoutes from "./routes/dashboard.js";
 import budgetRoutes from "./routes/budgets.js";
+import savingsRoutes from "./routes/savings.js";
 
 // Load Neon environment variables first.
 dotenv.config({ path: ".env.local" });
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/budgets", budgetRoutes);
+app.use("/api/savings", savingsRoutes);
 
 app.use((error, _req, res, _next) => {
   console.error("Unhandled API error:", error);
